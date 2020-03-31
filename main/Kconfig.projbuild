@@ -2,7 +2,7 @@ menu "Example Configuration"
 
 config WIFI_SSID
     string "WiFi SSID"
-	default "Lucas"
+	default "JELME"
 	help
 		SSID (network name) for the example to connect to.
 
@@ -17,7 +17,7 @@ config WIFI_IDENTITY
 
 config WIFI_PASSWORD
     string "WiFi Password"
-	default "123hihihi"
+	default "Appel123"
 	help
 		WiFi password (WPA or WPA2) for the example to use.
 

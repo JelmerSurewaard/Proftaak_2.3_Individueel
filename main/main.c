@@ -35,6 +35,9 @@ static const char *TAG = "Individueel_Main";
 #include "smbus.h"
 #include "i2c-lcd1602.h"
 
+// Game
+#include "./game/game.c"
+
 // Hardware
 #include "./screen/lcd.c"
 
@@ -45,6 +48,7 @@ static const char *TAG = "Individueel_Main";
 void initWifi();
 void init_sdcard();
 void loading_screen();
+void doButtonAction();
 
 mcp23017_t mcp23017;
 SemaphoreHandle_t xMutex;
@@ -67,6 +71,8 @@ esp_periph_set_handle_t set;
 #define boolean int
 
 boolean loading = false;
+int isClicked = 0;
+boolean buttonIsClicked = false;
 
 // init LCD and SMBus
 smbus_info_t *smbus_lcd;
@@ -120,12 +126,31 @@ void mcp23017_task_read(void *pvParameters)
 
         xSemaphoreGive(xMutex);
 
-        // printf("states: %d\n", states);
-        //runMenuOptionFromButton(states);
+         //printf("states: %d\n", states);
 
-        //ESP_LOGI(TAG, "GPIO register A states: %d", states);
+        doButtonAction(states);
     }
     vTaskDelete(NULL);
+}
+
+void doButtonAction(int button) {
+
+        if (button == 128)
+        {
+            printf("blue button was pressed");
+            vTaskDelay(1000 / portTICK_RATE_MS);
+        }
+        if (button == 64)
+        {
+            printf("red button was pressed");
+            isClicked = 4;
+            vTaskDelay(1000 / portTICK_RATE_MS);
+        }
+        if (button == 32)
+        {
+            printf("green button was pressed");
+            vTaskDelay(1000 / portTICK_RATE_MS);
+        }
 }
 
 // The main of the program
@@ -164,6 +189,9 @@ void app_main()
     vTaskDelay(5000 / portTICK_RATE_MS);
 
     loading = false;
+
+
+    game();
 
 }
 
@@ -214,6 +242,10 @@ void loading_screen() {
         clearScreen();
         for (size_t i = 0; i < 3; i++)
         {
+            if (loading == false)
+            {
+                break;
+            }
             writeLineFromStart("Loading");
             writeLineOnPosition(8 + i, 0, ".");
             vTaskDelay(500 / portTICK_RATE_MS);
