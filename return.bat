@@ -1,0 +1,1 @@
+cd C:\esp\esp-adf\esp-idf

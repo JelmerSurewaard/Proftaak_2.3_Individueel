@@ -1,0 +1,326 @@
+In archive C:/esp/esp-adf/IndividueelJelmer/Proftaak_2.3_Individueel/build/esp-idf/protobuf-c/libprotobuf-c.a:
+
+protobuf-c.c.obj:     file format elf32-xtensa-le
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .literal.field_is_zeroish 00000014  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .literal.count_packed_elements 00000008  00000000  00000000  00000048  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  2 .literal.protobuf_c_buffer_simple_append 0000000c  00000000  00000000  00000050  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  3 .literal.copy_to_little_endian_32 00000004  00000000  00000000  0000005c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .literal.copy_to_little_endian_64 00000004  00000000  00000000  00000060  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .literal.system_free 00000004  00000000  00000000  00000064  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  6 .literal.system_alloc 00000004  00000000  00000000  00000068  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .literal.protobuf_c_service_invoke_internal 00000014  00000000  00000000  0000006c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .literal.message_init_generic 00000010  00000000  00000000  00000080  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  9 .literal.get_packed_payload_length 00000028  00000000  00000000  00000090  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 .literal.merge_messages 0000002c  00000000  00000000  000000b8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 11 .literal.parse_packed_repeated_member 00000044  00000000  00000000  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 12 .literal.tag_pack 00000008  00000000  00000000  00000128  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 13 .literal.unknown_field_pack_to_buffer 00000004  00000000  00000000  00000130  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 14 .literal.unknown_field_pack 00000008  00000000  00000000  00000134  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 15 .literal.pack_buffer_packed_payload 0000001c  00000000  00000000  0000013c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 16 .literal.protobuf_c_version 00000004  00000000  00000000  00000158  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 17 .literal.protobuf_c_version_number 00000004  00000000  00000000  0000015c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .literal.protobuf_c_message_get_packed_size 00000030  00000000  00000000  00000160  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 19 .literal.required_field_get_packed_size 00000038  00000000  00000000  00000190  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 20 .literal.oneof_field_get_packed_size 00000004  00000000  00000000  000001c8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 21 .literal.optional_field_get_packed_size 00000004  00000000  00000000  000001cc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 22 .literal.unlabeled_field_get_packed_size 00000008  00000000  00000000  000001d0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 23 .literal.repeated_field_get_packed_size 00000028  00000000  00000000  000001d8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 24 .literal.protobuf_c_message_pack 0000002c  00000000  00000000  00000200  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 25 .literal.required_field_pack 00000044  00000000  00000000  0000022c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 26 .literal.oneof_field_pack 00000004  00000000  00000000  00000270  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 27 .literal.optional_field_pack 00000004  00000000  00000000  00000274  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 28 .literal.unlabeled_field_pack 00000008  00000000  00000000  00000278  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 29 .literal.repeated_field_pack 00000054  00000000  00000000  00000280  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 30 .literal.protobuf_c_message_pack_to_buffer 0000002c  00000000  00000000  000002d4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 31 .literal.required_field_pack_to_buffer 00000034  00000000  00000000  00000300  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 32 .literal.oneof_field_pack_to_buffer 00000004  00000000  00000000  00000334  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 33 .literal.optional_field_pack_to_buffer 00000004  00000000  00000000  00000338  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 34 .literal.unlabeled_field_pack_to_buffer 00000008  00000000  00000000  0000033c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 35 .literal.repeated_field_pack_to_buffer 00000030  00000000  00000000  00000344  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 36 .literal.protobuf_c_message_free_unpacked 0000001c  00000000  00000000  00000374  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 37 .literal.protobuf_c_message_unpack 0000005c  00000000  00000000  00000390  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 38 .literal.parse_required_member 00000028  00000000  00000000  000003ec  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 39 .literal.parse_oneof_member 00000020  00000000  00000000  00000414  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 40 .literal.parse_optional_member 00000004  00000000  00000000  00000434  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 41 .literal.parse_repeated_member 00000018  00000000  00000000  00000438  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 42 .literal.parse_member 00000030  00000000  00000000  00000450  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 43 .literal.protobuf_c_message_check 00000004  00000000  00000000  00000480  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 44 .literal.protobuf_c_service_generated_init 00000020  00000000  00000000  00000484  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 45 .literal.protobuf_c_enum_descriptor_get_value_by_name 00000008  00000000  00000000  000004a4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 46 .literal.protobuf_c_message_descriptor_get_field_by_name 00000008  00000000  00000000  000004ac  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 47 .literal.protobuf_c_service_descriptor_get_method_by_name 00000008  00000000  00000000  000004b4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 48 .text         00000000  00000000  00000000  000004bc  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 49 .data         00000000  00000000  00000000  000004bc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 50 .bss          00000000  00000000  00000000  000004bc  2**0
+                  ALLOC
+ 51 .text.field_is_zeroish 000000a1  00000000  00000000  000004bc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 52 .rodata.field_is_zeroish 00000044  00000000  00000000  00000560  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 53 .text.get_type_min_size 00000049  00000000  00000000  000005a4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 54 .text.parse_tag_and_wiretype 00000063  00000000  00000000  000005f0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 55 .text.max_b128_numbers 00000023  00000000  00000000  00000654  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 56 .text.count_packed_elements 00000051  00000000  00000000  00000678  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 57 .rodata.count_packed_elements 00000038  00000000  00000000  000006cc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 58 .text.parse_boolean 00000020  00000000  00000000  00000704  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 59 .text.scan_varint 0000002c  00000000  00000000  00000724  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 60 .text.is_packable_type 00000012  00000000  00000000  00000750  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 61 .text.protobuf_c_buffer_simple_append 00000078  00000000  00000000  00000764  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 62 .text.copy_to_little_endian_32 00000012  00000000  00000000  000007dc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 63 .text.copy_to_little_endian_64 00000012  00000000  00000000  000007f0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 64 .text.system_free 0000000e  00000000  00000000  00000804  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 65 .text.system_alloc 00000010  00000000  00000000  00000814  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 66 .rodata.str1.4 000001a0  00000000  00000000  00000824  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 67 .text.protobuf_c_service_invoke_internal 00000032  00000000  00000000  000009c4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 68 .text.message_init_generic 000000db  00000000  00000000  000009f8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 69 .rodata.message_init_generic 00000044  00000000  00000000  00000ad4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 70 .text.get_packed_payload_length 0000025e  00000000  00000000  00000b18  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 71 .rodata.get_packed_payload_length 00000038  00000000  00000000  00000d78  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 72 .text.parse_uint64 000000be  00000000  00000000  00000db0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 73 .text.merge_messages 000002e0  00000000  00000000  00000e70  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 74 .rodata.merge_messages 00000088  00000000  00000000  00001150  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 75 .text.parse_packed_repeated_member 000002b4  00000000  00000000  000011d8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 76 .rodata.parse_packed_repeated_member 0000007c  00000000  00000000  0000148c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 77 .text.uint64_pack 00000101  00000000  00000000  00001508  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 78 .text.tag_pack 00000096  00000000  00000000  0000160c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 79 .text.unknown_field_pack_to_buffer 00000042  00000000  00000000  000016a4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 80 .text.unknown_field_pack 00000037  00000000  00000000  000016e8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 81 .text.pack_buffer_packed_payload 0000033f  00000000  00000000  00001720  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 82 .rodata.pack_buffer_packed_payload 00000038  00000000  00000000  00001a60  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 83 .text.protobuf_c_version 00000008  00000000  00000000  00001a98  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 84 .text.protobuf_c_version_number 00000008  00000000  00000000  00001aa0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 85 .text.protobuf_c_message_get_packed_size 000000fc  00000000  00000000  00001aa8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 86 .text.required_field_get_packed_size 00000302  00000000  00000000  00001ba4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 87 .rodata.required_field_get_packed_size 00000044  00000000  00000000  00001ea8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 88 .text.oneof_field_get_packed_size 00000048  00000000  00000000  00001eec  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 89 .text.optional_field_get_packed_size 00000048  00000000  00000000  00001f34  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 90 .text.unlabeled_field_get_packed_size 00000021  00000000  00000000  00001f7c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 91 .text.repeated_field_get_packed_size 000003ad  00000000  00000000  00001fa0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 92 .rodata.repeated_field_get_packed_size 00000044  00000000  00000000  00002350  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 93 .text.protobuf_c_message_pack 000000db  00000000  00000000  00002394  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 94 .text.required_field_pack 00000546  00000000  00000000  00002470  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 95 .rodata.required_field_pack 00000044  00000000  00000000  000029b8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 96 .text.oneof_field_pack 0000004a  00000000  00000000  000029fc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 97 .text.optional_field_pack 0000004a  00000000  00000000  00002a48  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 98 .text.unlabeled_field_pack 00000024  00000000  00000000  00002a94  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 99 .text.repeated_field_pack 000004bc  00000000  00000000  00002ab8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+100 .rodata.repeated_field_pack 0000007c  00000000  00000000  00002f74  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+101 .text.protobuf_c_message_pack_to_buffer 000000d9  00000000  00000000  00002ff0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+102 .text.required_field_pack_to_buffer 000005d4  00000000  00000000  000030cc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+103 .rodata.required_field_pack_to_buffer 00000044  00000000  00000000  000036a0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+104 .text.oneof_field_pack_to_buffer 0000004a  00000000  00000000  000036e4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+105 .text.optional_field_pack_to_buffer 0000004a  00000000  00000000  00003730  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+106 .text.unlabeled_field_pack_to_buffer 00000024  00000000  00000000  0000377c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+107 .text.repeated_field_pack_to_buffer 00000144  00000000  00000000  000037a0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+108 .rodata.repeated_field_pack_to_buffer 00000044  00000000  00000000  000038e4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+109 .text.protobuf_c_message_free_unpacked 0000018b  00000000  00000000  00003928  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+110 .text.protobuf_c_message_init 0000000c  00000000  00000000  00003ab4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+111 .text.protobuf_c_message_unpack 0000066e  00000000  00000000  00003ac0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+112 .rodata.protobuf_c_message_unpack 00000044  00000000  00000000  00004130  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+113 .text.parse_required_member 00000314  00000000  00000000  00004174  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+114 .rodata.parse_required_member 00000044  00000000  00000000  00004488  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+115 .text.parse_oneof_member 00000138  00000000  00000000  000044cc  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+116 .rodata.parse_oneof_member 00000044  00000000  00000000  00004604  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+117 .text.parse_optional_member 00000028  00000000  00000000  00004648  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+118 .text.parse_repeated_member 00000058  00000000  00000000  00004670  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+119 .rodata.parse_repeated_member 00000044  00000000  00000000  000046c8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+120 .text.parse_member 00000102  00000000  00000000  0000470c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+121 .text.protobuf_c_message_check 0000012c  00000000  00000000  00004810  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+122 .text.protobuf_c_service_generated_init 00000047  00000000  00000000  0000493c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+123 .text.protobuf_c_service_destroy 0000000c  00000000  00000000  00004984  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+124 .text.protobuf_c_enum_descriptor_get_value_by_name 00000096  00000000  00000000  00004990  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+125 .text.protobuf_c_enum_descriptor_get_value 0000008d  00000000  00000000  00004a28  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+126 .text.protobuf_c_message_descriptor_get_field_by_name 00000096  00000000  00000000  00004ab8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+127 .text.protobuf_c_message_descriptor_get_field 0000008e  00000000  00000000  00004b50  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+128 .text.protobuf_c_service_descriptor_get_method_by_name 00000092  00000000  00000000  00004be0  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+129 .rodata.__func__$3619 00000022  00000000  00000000  00004c74  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+130 .rodata.__func__$3613 00000023  00000000  00000000  00004c98  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+131 .rodata.__func__$3538 00000021  00000000  00000000  00004cbc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+132 .rodata.__func__$3406 0000001d  00000000  00000000  00004ce0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+133 .rodata.__func__$3422 0000000d  00000000  00000000  00004d00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+134 .rodata.__func__$3474 0000001a  00000000  00000000  00004d10  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+135 .rodata.__func__$3070 0000001b  00000000  00000000  00004d2c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+136 .rodata.__func__$3019 0000001a  00000000  00000000  00004d48  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+137 .rodata.__func__$3082 0000001e  00000000  00000000  00004d64  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+138 .rodata.__func__$2956 0000001e  00000000  00000000  00004d84  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+139 .rodata.__func__$3101 00000022  00000000  00000000  00004da4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+140 .rodata.__func__$2826 0000001d  00000000  00000000  00004dc8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+141 .rodata.__func__$2895 00000014  00000000  00000000  00004de8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+142 .rodata.__func__$2786 00000014  00000000  00000000  00004dfc  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+143 .rodata.__func__$2912 00000018  00000000  00000000  00004e10  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+144 .rodata.__func__$2589 0000001f  00000000  00000000  00004e28  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+145 .rodata.__func__$2692 00000023  00000000  00000000  00004e48  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+146 .data.protobuf_c__allocator 0000000c  00000000  00000000  00004e6c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, DATA
+147 .rodata.protobuf_c_empty_string 00000001  00000000  00000000  00004e78  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+148 .debug_frame  000005b0  00000000  00000000  00004e7c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+149 .debug_info   00006516  00000000  00000000  0000542c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+150 .debug_abbrev 0000047b  00000000  00000000  0000b942  2**0
+                  CONTENTS, READONLY, DEBUGGING
+151 .debug_loc    00008822  00000000  00000000  0000bdbd  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+152 .debug_aranges 000001f8  00000000  00000000  000145df  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+153 .debug_ranges 000005f8  00000000  00000000  000147d7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+154 .debug_line   00004576  00000000  00000000  00014dcf  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+155 .debug_str    00001564  00000000  00000000  00019345  2**0
+                  CONTENTS, READONLY, DEBUGGING
+156 .comment      0000003c  00000000  00000000  0001a8a9  2**0
+                  CONTENTS, READONLY
+157 .xtensa.info  00000038  00000000  00000000  0001a8e5  2**0
+                  CONTENTS, READONLY
+158 .xt.lit       00000180  00000000  00000000  0001a91d  2**0
+                  CONTENTS, RELOC, READONLY
+159 .xt.prop      00004ef0  00000000  00000000  0001aa9d  2**0
+                  CONTENTS, RELOC, READONLY

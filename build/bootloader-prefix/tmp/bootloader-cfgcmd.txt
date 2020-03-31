@@ -1,0 +1,1 @@
+cmd='C:/Users/jelme/.espressif/tools/cmake/3.13.4/bin/cmake.exe;-DSDKCONFIG=C:/esp/esp-adf/IndividueelJelmer/Proftaak_2.3_Individueel/sdkconfig;-DIDF_PATH=C:/esp/esp-adf/esp-idf;-DSECURE_BOOT_SIGNING_KEY=C:/esp/esp-adf/IndividueelJelmer/Proftaak_2.3_Individueel;-DEXTRA_COMPONENT_DIRS=C:/esp/esp-adf/esp-idf/components/bootloader;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'
