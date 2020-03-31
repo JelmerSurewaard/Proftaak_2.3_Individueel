@@ -47,6 +47,7 @@ void initWifi();
 mcp23017_t mcp23017;
 SemaphoreHandle_t xMutex;
 
+
 //--------------------------------------------------------------------------------------------------------
 #define I2C_MASTER_NUM I2C_NUM_0
 #define I2C_MASTER_TX_BUF_LEN 0 // disabled
@@ -109,7 +110,7 @@ void mcp23017_task_read(void *pvParameters)
         xSemaphoreGive(xMutex);
 
         // printf("states: %d\n", states);
-        //runMenuOptionFromButton(states);
+        runMenuOptionFromButton(states);
 
         //ESP_LOGI(TAG, "GPIO register A states: %d", states);
     }
