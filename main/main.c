@@ -44,9 +44,12 @@ static const char *TAG = "Individueel_Main";
 
 void initWifi();
 void init_sdcard();
+void loading_screen();
 
 mcp23017_t mcp23017;
 SemaphoreHandle_t xMutex;
+
+esp_periph_set_handle_t set;
 
 //--------------------------------------------------------------------------------------------------------
 #define I2C_MASTER_NUM I2C_NUM_0
@@ -63,11 +66,15 @@ SemaphoreHandle_t xMutex;
 #define false 0
 #define boolean int
 
+boolean loading = false;
+
 // init LCD and SMBus
 smbus_info_t *smbus_lcd;
 smbus_info_t *smbus_rgb;
 smbus_info_t *smbus_audio;
 i2c_lcd1602_info_t *lcd_info;
+
+// Initialize for the LCD display. Essential for the program to run.
 
 void lcd1602_task(void *pvParameter)
 {
@@ -86,21 +93,12 @@ void lcd1602_task(void *pvParameter)
 
     i2c_lcd1602_set_backlight(lcd_info, true);
 
-
-    for (size_t j = 0; j < 3; j++)
-    {
-        clearScreen();
-        for (size_t i = 0; i < 3; i++)
-        {
-            writeLineFromStart("Loading");
-            writeLineOnPosition(8 + i, 0, ".");
-            vTaskDelay(500 / portTICK_RATE_MS);
-        }
-    }
-    
+    loading = true;    
     
     //vTaskDelete(NULL);
 }
+
+// Task that reads the input of the connected buttons on breadboard. 
 
 void mcp23017_task_read(void *pvParameters)
 {
@@ -130,7 +128,7 @@ void mcp23017_task_read(void *pvParameters)
     vTaskDelete(NULL);
 }
 
-esp_periph_set_handle_t set;
+// The main of the program
 
 void app_main()
 {
@@ -160,12 +158,20 @@ void app_main()
     lcd_info = i2c_lcd1602_malloc();
     lcd1602_task(NULL);
 
+    // setup loading task
+    xTaskCreate(loading_screen, "loading_screen", 1024 * 8, NULL, 24, NULL);
+
+    vTaskDelay(5000 / portTICK_RATE_MS);
+
+    loading = false;
 
 }
 
+// Initializes Wifi with given parameters in the config. Essential for the program to run.
+
 void initWifi()
 {
-    ESP_LOGI(TAG, "[ 3 ] Start and wait for Wi-Fi network");
+    ESP_LOGI(TAG, "[ 2 ] Start and wait for Wi-Fi network");
 
     tcpip_adapter_init();
 
@@ -185,13 +191,34 @@ void initWifi()
     esp_periph_set_destroy(set);
 }
 
+// Initializes SD card. Essential for the program to run.
+
 void init_sdcard()
 {
+    ESP_LOGI(TAG, "[ 1 ] Initializes SD card");
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES)
     {
         ESP_ERROR_CHECK(nvs_flash_erase());
         err = nvs_flash_init();
     }
+}
+
+// Displays the loading screen as long as the value loading == true.
+// Deletes itself when the value of loading is set to false.
+
+void loading_screen() {
+    loading = true;
+    while (loading == true)
+    {
+        clearScreen();
+        for (size_t i = 0; i < 3; i++)
+        {
+            writeLineFromStart("Loading");
+            writeLineOnPosition(8 + i, 0, ".");
+            vTaskDelay(500 / portTICK_RATE_MS);
+        }
+    }
+    vTaskDelete(NULL);
 }
 
