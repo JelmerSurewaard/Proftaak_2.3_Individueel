@@ -1251,44 +1251,6 @@ rule C_STATIC_LIBRARY_LINKER__idf_component_timesync
 
 
 #############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__idf_component_I2C_RTE
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__idf_component_I2C_RTE
-  command = cmd.exe /C "$PRE_LINK && C:\Users\jelme\.espressif\tools\cmake\3.13.4\bin\cmake.exe -E remove $TARGET_FILE && C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-ranlib.exe $TARGET_FILE && $POST_BUILD"
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__idf_component_goertzel
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__idf_component_goertzel
-  command = cmd.exe /C "$PRE_LINK && C:\Users\jelme\.espressif\tools\cmake\3.13.4\bin\cmake.exe -E remove $TARGET_FILE && C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-ar.exe qc $TARGET_FILE $LINK_FLAGS $in && C:\Users\jelme\.espressif\tools\xtensa-esp32-elf\1.22.0-80-g6c4433a5-5.2.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-ranlib.exe $TARGET_FILE && $POST_BUILD"
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
 # Rule for compiling CXX files.
 
 rule CXX_COMPILER__idf_component_asio

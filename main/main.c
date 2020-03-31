@@ -43,6 +43,7 @@ static const char *TAG = "Individueel_Main";
 #define string char *
 
 void initWifi();
+void init_sdcard();
 
 mcp23017_t mcp23017;
 SemaphoreHandle_t xMutex;
@@ -84,7 +85,20 @@ void lcd1602_task(void *pvParameter)
     i2c_lcd1602_init(lcd_info, smbus_lcd, true, LCD_NUM_ROWS, LCD_NUM_COLUMNS, LCD_NUM_VIS_COLUMNS);
 
     i2c_lcd1602_set_backlight(lcd_info, true);
-    writeLineFromStart("Werkt dit?");
+
+
+    for (size_t j = 0; j < 3; j++)
+    {
+        clearScreen();
+        for (size_t i = 0; i < 3; i++)
+        {
+            writeLineFromStart("Loading");
+            writeLineOnPosition(8 + i, 0, ".");
+            vTaskDelay(500 / portTICK_RATE_MS);
+        }
+    }
+    
+    
     //vTaskDelete(NULL);
 }
 
@@ -120,7 +134,8 @@ esp_periph_set_handle_t set;
 
 void app_main()
 {
-
+    // init SD card
+    init_sdcard();
     // start the internet connection
     initWifi();
 
@@ -168,5 +183,15 @@ void initWifi()
     periph_wifi_wait_for_connected(wifi_handle, 5000 / portTICK_RATE_MS);
 
     esp_periph_set_destroy(set);
+}
+
+void init_sdcard()
+{
+    esp_err_t err = nvs_flash_init();
+    if (err == ESP_ERR_NVS_NO_FREE_PAGES)
+    {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        err = nvs_flash_init();
+    }
 }
 
