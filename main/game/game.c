@@ -1,3 +1,4 @@
+// Uses #import to prevent looping includes
 #import "./screen/lcd.c"
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,12 +9,13 @@ void displayGame();
 
 // The value positionX is 0-19
 // The value positionY is 0-3
+// The value state indicates 0 = doesnt exist, 1 = hanging object, 2 = standing object.
 
 typedef struct
 {
     int positionX;
     int positionY;
-    int exists;
+    int state;
 }gameObject;
 
 gameObject player;
@@ -27,27 +29,29 @@ boolean playing = false;
 
 int score;
 int speed;
-
 int highScore = 0;
 
 extern int isClicked;
 
+// Method call to start the game. Resets all values except for highScore. 
+
 void game() {
+    playing = false;
+
     clearScreen();
     score = 0;
     speed = 200;
 
-    playing = false;
-
     player.positionX = 4;
     player.positionY = 3;
-    player.exists = 1;
+    player.state = 1;
 
-    object.exists = 0;
+    object.state = 0;
 
     xTaskCreate(game_thread, "game_thread", 1024 * 8, NULL, 24, NULL);
 }
 
+// The Gamethread. Runs continually until the player lost the game.
 
 void game_thread(void* pvParameters)
 {
@@ -58,7 +62,7 @@ void game_thread(void* pvParameters)
         // Creates new object if no object exists. produces a random integer with the value 1 or 2.
         // When the value for the object is 2, it is a standing object. When the value for the object is 1, it is a hanging object.
 
-        if (object.exists == 0)
+        if (object.state == 0)
         {
             srand(time(NULL));
             int r = rand() % 2 + 1;
@@ -68,18 +72,24 @@ void game_thread(void* pvParameters)
 
             printf(random);
 
-            object.exists = r;
+            object.state = r;
             object.positionX = 19;
             object.positionY = r + 1;
         }
         else
         {
+            // Checks of object is leaving the screen. When this happens, it deletes the object.
 
             if (object.positionX == 1)
             {
-                object.exists = 0;
+                object.state = 0;
             }
             object.positionX = object.positionX - 1;
+
+            // Checks what value isClicked is.
+            // isClicked > 0    |   player jumps
+            // isClicked == 0   |   player does nothing
+            // isClicked < 0    |   player crouches
 
             if (isClicked > 0)
             {
@@ -100,7 +110,7 @@ void game_thread(void* pvParameters)
 
             // Checks if the player touches the standing object. If this is true, the game ends.
 
-            if (object.exists == 2 && object.positionX == player.positionX && object.positionY <= player.positionY)
+            if (object.state == 2 && object.positionX == player.positionX && object.positionY <= player.positionY)
             {
                 playing = false;
                 displayGame();
@@ -109,12 +119,15 @@ void game_thread(void* pvParameters)
 
             // Checks if the player touches the hanging object. If this is true, the game ends.
 
-            if (object.exists == 1 && object.positionX == player.positionX && (object.positionY + 1) >= player.positionY)
+            if (object.state == 1 && object.positionX == player.positionX && (object.positionY + 1) >= player.positionY)
             {
                 playing = false;
                 displayGame();
                 break;
             }
+
+            // Checks if player gets past object. Updates score when this happens
+            // Checks if score > highscore. Updates highscore when this happens
 
             if (object.positionX == player.positionX)
             {
@@ -127,29 +140,40 @@ void game_thread(void* pvParameters)
 
             displayGame();
 
-            vTaskDelay((speed - (score * 10)) / portTICK_RATE_MS);
+            // Formula to increase the speed of the game as you get a higher score. When score is 20, the speed stays constant
+
+            vTaskDelay((speed - (score * 10)) + 50 / portTICK_RATE_MS);
         }
     }
     vTaskDelete(NULL);
 }
 
+// Method to display game on LCD screen. Dimensions of the LCD screen are 4x20.
+
 void displayGame() {
     clearScreen();
 
-    if (object.exists == 2)
+    // Checks if object is hanging or standing, and displays the correct form.
+
+    if (object.state == 2)
     {
         writeLineOnPosition(object.positionX, 3, "O");
     }
 
-    if (object.exists == 1)
+    if (object.state == 1)
     {
         writeLineOnPosition(object.positionX, 0, "|");
         writeLineOnPosition(object.positionX, 1, "|");
         writeLineOnPosition(object.positionX, 2, "O");
     }
 
+    // Displays player
+
     writeLineOnPosition(player.positionX, player.positionY, "|");
     writeLineOnPosition(player.positionX, player.positionY - 1, "O");
+
+    // Displays score and highscore
+    // NOTE: Score and highscore can never get past 999, otherwise they will not fit on the screen. 
 
     char scoreString[128];
     sprintf(scoreString, "%s%d", "Score:", score);
@@ -157,5 +181,5 @@ void displayGame() {
 
     char highScoreString[128];
     sprintf(highScoreString, "%s%d", "HiScore:", highScore);
-    writeLineOnPosition(10, 0, highScoreString);
+    writeLineOnPosition(9, 0, highScoreString);
 }

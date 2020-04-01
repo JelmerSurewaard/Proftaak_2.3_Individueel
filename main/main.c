@@ -5,26 +5,12 @@ static const char *TAG = "Individueel_Main";
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "esp_log.h"
-#include "esp_wifi.h"
 #include "nvs_flash.h"
 #include "sdkconfig.h"
-#include "audio_element.h"
-#include "audio_pipeline.h"
-#include "audio_event_iface.h"
-#include "audio_common.h"
-#include "http_stream.h"
-#include "i2s_stream.h"
-#include "mp3_decoder.h"
 #include "sdkconfig.h"
 
-#include "esp_peripherals.h"
-#include "periph_wifi.h"
 #include "board.h"
 #include <stdio.h>
-
-#include "periph_touch.h"
-#include "periph_adc_button.h"
-#include "periph_button.h"
 
 #include "esp_system.h"
 #include "driver/gpio.h"
@@ -132,11 +118,18 @@ void mcp23017_task_read(void *pvParameters)
     vTaskDelete(NULL);
 }
 
+// Checks wich button is pressed
+// Delays task when button is pressed to prevent continiously pressing buttons to cheese the game.
+// Blue button  =       Reset game
+// Red button   =       Jump
+// Green button =       Crouch
+
 void doButtonAction(int button) {
 
         if (button == 128)
         {
             printf("blue button was pressed");
+            loading = false;
             game();
             vTaskDelay(1000 / portTICK_RATE_MS);
         }
@@ -185,10 +178,6 @@ void app_main()
     // setup loading task
     xTaskCreate(loading_screen, "loading_screen", 1024 * 8, NULL, 24, NULL);
 
-    vTaskDelay(2000 / portTICK_RATE_MS);
-
-    loading = false;
-
 }
 
 // Initializes SD card. Essential for the program to run.
@@ -225,4 +214,3 @@ void loading_screen() {
     }
     vTaskDelete(NULL);
 }
-
