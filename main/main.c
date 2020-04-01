@@ -138,6 +138,7 @@ void doButtonAction(int button) {
         if (button == 128)
         {
             printf("blue button was pressed");
+            game();
             vTaskDelay(1000 / portTICK_RATE_MS);
         }
         if (button == 64)
@@ -149,6 +150,7 @@ void doButtonAction(int button) {
         if (button == 32)
         {
             printf("green button was pressed");
+            isClicked = -4;
             vTaskDelay(1000 / portTICK_RATE_MS);
         }
 }
@@ -186,12 +188,9 @@ void app_main()
     // setup loading task
     xTaskCreate(loading_screen, "loading_screen", 1024 * 8, NULL, 24, NULL);
 
-    vTaskDelay(5000 / portTICK_RATE_MS);
+    vTaskDelay(2000 / portTICK_RATE_MS);
 
     loading = false;
-
-
-    game();
 
 }
 

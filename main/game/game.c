@@ -1,5 +1,7 @@
 #import "./screen/lcd.c"
+#include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 void game_thread(void* pvParameters);
 void displayGame();
@@ -34,6 +36,8 @@ void game() {
     score = 0;
     speed = 200;
 
+    playing = false;
+
     player.positionX = 4;
     player.positionY = 3;
     player.exists = 1;
@@ -50,13 +54,22 @@ void game_thread(void* pvParameters)
     while (playing == true)
     {
 
-        // Creates new object if no object exists.
+        // Creates new object if no object exists. produces a random integer with the value 1 or 2.
+        // When the value for the object is 2, it is a standing object. When the value for the object is 1, it is a hanging object.
 
         if (object.exists == 0)
         {
-            object.exists = 1;
+            srand(time(NULL));
+            int r = rand() % 2 + 1;
+            
+            char random[128];
+            sprintf(random, "%s%d", "Random number: ", r);
+
+            printf(random);
+
+            object.exists = r;
             object.positionX = 19;
-            object.positionY = 3;
+            object.positionY = r + 1;
         }
         else
         {
@@ -78,12 +91,24 @@ void game_thread(void* pvParameters)
                 player.positionY = 3;
             }
 
+            if (isClicked < 0)
+            {
+                player.positionY = 4;
+                isClicked++;
+            }
+
             // Checks if the player touches the object. If this is true, the game ends.
 
             if (object.positionX == player.positionX && object.positionY == player.positionY)
             {
-                //playing = false;
-                //break;
+                playing = false;
+                displayGame();
+                break;
+            }
+
+            if (object.positionX == player.positionX)
+            {
+                score++;
             }
 
             displayGame();
@@ -97,11 +122,22 @@ void game_thread(void* pvParameters)
 void displayGame() {
     clearScreen();
 
-    if (object.exists == 1)
+    if (object.exists == 2)
     {
         writeLineOnPosition(object.positionX, 3, "O");
     }
 
+    if (object.exists == 1)
+    {
+        writeLineOnPosition(object.positionX, 0, "|");
+        writeLineOnPosition(object.positionX, 1, "|");
+        writeLineOnPosition(object.positionX, 2, "O");
+    }
+
     writeLineOnPosition(player.positionX, player.positionY, "|");
     writeLineOnPosition(player.positionX, player.positionY - 1, "O");
+
+    char string[128];
+    sprintf(string, "%s%d", "Score: ", score);
+    writeLineOnPosition(0, 0, string);
 }
