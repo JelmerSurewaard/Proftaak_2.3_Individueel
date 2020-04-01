@@ -8,7 +8,6 @@ void displayGame();
 
 // The value positionX is 0-19
 // The value positionY is 0-3
-// The value exits means 1 = exist, 0 != exist
 
 typedef struct
 {
@@ -28,6 +27,8 @@ boolean playing = false;
 
 int score;
 int speed;
+
+int highScore = 0;
 
 extern int isClicked;
 
@@ -97,9 +98,18 @@ void game_thread(void* pvParameters)
                 isClicked++;
             }
 
-            // Checks if the player touches the object. If this is true, the game ends.
+            // Checks if the player touches the standing object. If this is true, the game ends.
 
-            if (object.positionX == player.positionX && object.positionY == player.positionY)
+            if (object.exists == 2 && object.positionX == player.positionX && object.positionY <= player.positionY)
+            {
+                playing = false;
+                displayGame();
+                break;
+            }
+
+            // Checks if the player touches the hanging object. If this is true, the game ends.
+
+            if (object.exists == 1 && object.positionX == player.positionX && (object.positionY + 1) >= player.positionY)
             {
                 playing = false;
                 displayGame();
@@ -109,11 +119,15 @@ void game_thread(void* pvParameters)
             if (object.positionX == player.positionX)
             {
                 score++;
+                if (score > highScore)
+                {
+                    highScore = score;
+                }
             }
 
             displayGame();
 
-            vTaskDelay(speed / portTICK_RATE_MS);
+            vTaskDelay((speed - (score * 10)) / portTICK_RATE_MS);
         }
     }
     vTaskDelete(NULL);
@@ -137,7 +151,11 @@ void displayGame() {
     writeLineOnPosition(player.positionX, player.positionY, "|");
     writeLineOnPosition(player.positionX, player.positionY - 1, "O");
 
-    char string[128];
-    sprintf(string, "%s%d", "Score: ", score);
-    writeLineOnPosition(0, 0, string);
+    char scoreString[128];
+    sprintf(scoreString, "%s%d", "Score:", score);
+    writeLineOnPosition(0, 0, scoreString);
+
+    char highScoreString[128];
+    sprintf(highScoreString, "%s%d", "HiScore:", highScore);
+    writeLineOnPosition(10, 0, highScoreString);
 }

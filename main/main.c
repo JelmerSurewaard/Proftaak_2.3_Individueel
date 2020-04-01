@@ -45,7 +45,6 @@ static const char *TAG = "Individueel_Main";
 #define NUMBER_OF_BUTTONS 5
 #define string char *
 
-void initWifi();
 void init_sdcard();
 void loading_screen();
 void doButtonAction();
@@ -161,8 +160,6 @@ void app_main()
 {
     // init SD card
     init_sdcard();
-    // start the internet connection
-    initWifi();
 
     // Initialize I2C bus
     mcp23017.i2c_addr = 0x20;
@@ -192,30 +189,6 @@ void app_main()
 
     loading = false;
 
-}
-
-// Initializes Wifi with given parameters in the config. Essential for the program to run.
-
-void initWifi()
-{
-    ESP_LOGI(TAG, "[ 2 ] Start and wait for Wi-Fi network");
-
-    tcpip_adapter_init();
-
-    esp_periph_config_t periph_cfg = DEFAULT_ESP_PERIPH_SET_CONFIG();
-    set = esp_periph_set_init(&periph_cfg);
-
-    periph_wifi_cfg_t wifi_cfg = {
-        .ssid = CONFIG_WIFI_SSID,
-        .password = CONFIG_WIFI_PASSWORD,
-    };
-
-    esp_periph_handle_t wifi_handle = periph_wifi_init(&wifi_cfg);
-    esp_periph_start(set, wifi_handle);
-
-    periph_wifi_wait_for_connected(wifi_handle, 5000 / portTICK_RATE_MS);
-
-    esp_periph_set_destroy(set);
 }
 
 // Initializes SD card. Essential for the program to run.
