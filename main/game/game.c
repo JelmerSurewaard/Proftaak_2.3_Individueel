@@ -142,7 +142,7 @@ void game_thread(void* pvParameters)
 
             // Formula to increase the speed of the game as you get a higher score. When score is 20, the speed stays constant
 
-            vTaskDelay((speed - (score * 10)) + 50 / portTICK_RATE_MS);
+            vTaskDelay(((speed - (score * 10)) + 50) / portTICK_RATE_MS);
         }
     }
     vTaskDelete(NULL);
